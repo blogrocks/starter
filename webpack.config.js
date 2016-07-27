@@ -83,7 +83,7 @@ module.exports = {
 			},
 			{
 				test:   /\.(png|gif|jpe?g|svg)$/i,
-				loader: 'url?limit=10000',
+				loader: 'url',
 			},
 			{
 				test: /\.js/,

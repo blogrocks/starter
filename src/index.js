@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
-import Button from './Components/Button';
+import Root from './Components/Root';
 
-ReactDOM.render(<Button />, document.getElementById('anchor'));
+ReactDOM.render(<Root />, document.getElementById('anchor'));
