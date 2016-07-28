@@ -8,12 +8,18 @@ export default class CountriesAndCities extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            currentCountry: this.props.countries[0]
+            currentCountry: this.props.countries[0],
+            activeCountryIndex: 0,
+            activeCityIndex: 0
         };
         this.handleClick = this.handleClick.bind(this)
     }
     handleClick (country, index, event) {
-        this.setState({currentCountry: country});
+        this.setState({
+            currentCountry: country,
+            activeCountryIndex: index,
+            activeCityIndex: 0
+        });
         event.preventDefault();
     }
     render() {
@@ -21,18 +27,22 @@ export default class CountriesAndCities extends Component {
             ,cities = this.props.citiesPerCountry[this.state.currentCountry];
 
         return (
-          <div>
               <div>
-                  <TabList key="countriesList" elements={countries} clickHandler={this.handleClick} />
+                  <div>
+                      <TabList active={this.state.activeCountryIndex}
+                               elements={countries}
+                               clickHandler={this.handleClick} />
+                  </div>
+                  <div>
+                      <TabList active={this.state.activeCityIndex}
+                               elements={cities}
+                               clickHandler={(city, index, event) => {
+                                               this.setState(Object.assign({}, this.state, {
+                                                    activeCityIndex: index
+                                               }));
+                                            }} />
+                  </div>
               </div>
-              <div>
-                  <TabList key={this.state.currentCountry}
-                           elements={cities}
-                           clickHandler={(city, index, event) => {
-                                               event.preventDefault();
-                                        }} />
-              </div>
-          </div>
         );
     }
 }

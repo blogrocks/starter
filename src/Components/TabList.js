@@ -7,17 +7,15 @@ export default class TabList extends Component {
     constructor(props) {
         super(props);
         this.onClick = this.onClick.bind(this);
-        this.state = { active: 0 };
     }
 
     onClick(i, event) {
-        this.setState({active: i});
         this.props.clickHandler(this.props.elements[i], i, event);
     }
     render() {
         var tabs = [], className;
         for (let i = 0; i < this.props.elements.length; i++) {
-            if (i == this.state.active) {
+            if (i == this.props.active) {
                 className = "excited";
             } else {
                 className = "neutral";
@@ -45,9 +43,11 @@ export default class TabList extends Component {
 
 TabList.propTypes = {
     elements: React.PropTypes.arrayOf(React.PropTypes.string),
-    clickHandler: React.PropTypes.func
+    clickHandler: React.PropTypes.func,
+    active: React.PropTypes.number
 };
 TabList.defaultProps = {
     elements: ["List 1", "List 2", "List 3"],
-    clickHandler: () => {}
+    clickHandler: () => {},
+    active: 0
 };
