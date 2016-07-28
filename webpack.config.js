@@ -87,7 +87,7 @@ module.exports = {
 			},
 			{
 				test: /\.js/,
-				loader: 'baggage?[file].html=template&[file].scss',
+				loader: 'baggage?[file].html=template&[file].scss&[file].css',
 			}
 		],
 	},

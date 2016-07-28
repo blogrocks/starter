@@ -1,0 +1,19 @@
+.neutral {
+  background-color: black;
+  color: white;
+}
+
+.excited {
+  background-color: #00acc1;
+  color: white;
+}
+
+.tab-list-wrapper-div {
+  padding: 10px;
+  margin: 10px;
+  display: inline-block;
+}
+
+.tab-list-wrapper-div:hover {
+  cursor: pointer;
+}
